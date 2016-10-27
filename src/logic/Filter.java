@@ -3,5 +3,5 @@ package logic;
 import domain.Vaucher;
 
 public interface Filter {
-	boolean isSatisfy(Vaucher vaucher);
+    boolean isSatisfy(Vaucher vaucher);
 }
