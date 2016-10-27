@@ -4,6 +4,7 @@ public class Vaucher {
 	private VaucherType type;
 	private String transport;
 	private String food;
+	private String destinationPoint;
 	private Integer days;
 
 	public VaucherType getType() {
@@ -36,5 +37,19 @@ public class Vaucher {
 
 	public void setDays(Integer days) {
 		this.days = days;
+	}
+
+	public String getDestinationPoint() {
+		return destinationPoint;
+	}
+
+	public void setDestinationPoint(String destinationPoint) {
+		this.destinationPoint = destinationPoint;
+	}
+
+	@Override
+	public String toString() {
+		return "Vaucher [type=" + type + ", transport=" + transport + ", food=" + food + ", destinationPoint="
+				+ destinationPoint + ", days=" + days + "]";
 	}
 }
