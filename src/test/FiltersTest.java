@@ -9,9 +9,9 @@ import logic.AndFilter;
 import logic.DaysFilter;
 import logic.Filter;
 import logic.Filtrator;
+import logic.FiltratorImpl;
 import logic.TypeFilter;
 import storage.FakeVaucherStorage;
-import storage.VaucherStorage;
 
 public class FiltersTest {
     public static void output(List<Vaucher> vauchers) {
@@ -21,13 +21,10 @@ public class FiltersTest {
     }
 
     public static void main(String[] args) throws Exception {
-        VaucherStorage storage = new FakeVaucherStorage();
-        List<Vaucher> vauchers = storage.read();
-        System.out.println("Исходный список");
-        output(vauchers);
+        Filtrator filtrator = new FiltratorImpl(new FakeVaucherStorage());
         Filter filter = new AndFilter(new TypeFilter(VaucherType.RECREATION), new DaysFilter(1, 10));
         List<Vaucher> filteredVauchers = new LinkedList<>();
-        Filtrator.filter(vauchers, filter, filteredVauchers);
+        filtrator.filter(filter, filteredVauchers);
         System.out.println("Отфильтрованный список");
         output(filteredVauchers);
     }
